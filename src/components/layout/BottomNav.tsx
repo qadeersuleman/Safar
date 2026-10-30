@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
-import { Home, Map, Search, Ticket, User, LogIn } from "lucide-react";
+import { Home, Map, Search, Ticket, User, LogIn, Radio } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 /** Mobile-first bottom tab bar (md se upar hide) */
@@ -12,7 +12,7 @@ export default function BottomNav({ authed }: { authed: boolean }) {
 
   const items = [
     { href: "/", label: "Home", icon: Home },
-    { href: "/routes", label: "Routes", icon: Map },
+    { href: "/track", label: "Track", icon: Radio },
     { href: "/search", label: "Book", icon: Search, center: true },
     { href: "/bookings", label: "Tickets", icon: Ticket },
     authed ? { href: "/profile", label: "Profile", icon: User } : { href: "/login", label: "Log in", icon: LogIn },

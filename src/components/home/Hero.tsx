@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Armchair, Bus, ShieldCheck, Zap } from "lucide-react";
 import gsap from "gsap";
@@ -62,14 +63,33 @@ export default function Hero({ stops }: { stops: Stop[] }) {
       <div className="absolute -left-24 bottom-24 -z-10 h-64 w-64 rounded-full bg-brand-700/30 blur-[100px]" />
 
       <div className="container-x pb-32 pt-10 sm:pt-20 lg:pt-24">
-        <motion.span
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="eyebrow"
-        >
-          <Bus className="h-3.5 w-3.5" /> Sukkur ⇄ Obauro · Daily buses
-        </motion.span>
+        <div className="flex flex-wrap items-center gap-3">
+          <motion.span
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="eyebrow"
+          >
+            <Bus className="h-3.5 w-3.5" /> Sukkur ⇄ Obauro · Daily buses
+          </motion.span>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
+            <Link
+              href="/track"
+              className="group flex items-center gap-2 rounded-full border border-brand-500/30 bg-brand-500/10 px-3.5 py-1 text-xs font-semibold text-brand-300 transition hover:border-brand-500 hover:bg-brand-500/20 hover:text-white"
+            >
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-mint opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-mint" />
+              </span>
+              <span>Live Bus Tracking (Bykea Style) →</span>
+            </Link>
+          </motion.div>
+        </div>
 
         <h1 className="heading-xl mt-5 max-w-3xl [perspective:800px]" aria-label="Your journey, just a tap away.">
           <span className="block" aria-hidden>

@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowRight, Loader2, Search, Ticket, XCircle } from "lucide-react";
+import { ArrowRight, Loader2, Radio, Search, Ticket, XCircle } from "lucide-react";
 import FormAlert from "@/components/ui/FormAlert";
 import { createClient } from "@/lib/supabase/client";
 import { cn, formatDate, formatMinutes, formatPKR, toMinutes, todayPKT } from "@/lib/utils";
@@ -194,8 +194,19 @@ export default function TicketList({ rows, maxKm }: { rows: RawBooking[]; maxKm:
                       }}
                     />
 
-                    {canCancel && (
+                    {!cancelled && g.date >= today && (
                       <div className="mt-5">
+                        <Link
+                          href="/track"
+                          className="btn btn-sm w-full bg-brand-500/20 text-brand-300 border border-brand-500/40 hover:bg-brand-500 hover:text-white"
+                        >
+                          <Radio className="h-4 w-4 animate-pulse" /> Trace Bus Live
+                        </Link>
+                      </div>
+                    )}
+
+                    {canCancel && (
+                      <div className="mt-3">
                         {confirming === g.code ? (
                           <div className="flex gap-3">
                             <button onClick={() => cancel(g.code)} disabled={busy === g.code} className="btn btn-sm flex-1 bg-red-500 text-white hover:bg-red-400">

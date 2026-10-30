@@ -13,6 +13,7 @@ type Props = { user: { name: string; email: string } | null };
 
 const LINKS = [
   { href: "/", label: "Home" },
+  { href: "/track", label: "Live Tracking" },
   { href: "/routes", label: "Routes & Fares" },
   { href: "/search", label: "Book a Seat" },
   { href: "/bookings", label: "My Tickets" },

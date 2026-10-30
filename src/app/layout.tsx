@@ -6,6 +6,7 @@ import Navbar from "@/components/layout/Navbar";
 import BottomNav from "@/components/layout/BottomNav";
 import Footer from "@/components/layout/Footer";
 import SetupBanner from "@/components/layout/SetupBanner";
+import Chatbot from "@/components/chat/Chatbot";
 import { getCurrentUser } from "@/lib/data";
 import { isSupabaseConfigured } from "@/lib/supabase/config";
 
@@ -40,6 +41,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <main className="min-h-[70svh] pb-24 md:pb-0">{children}</main>
         <Footer />
         <BottomNav authed={!!user} />
+        <Chatbot />
       </body>
     </html>
   );
